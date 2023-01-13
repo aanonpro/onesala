@@ -21,7 +21,10 @@ class MyHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    // final _scaffoldKey = new GlobalKey<ScaffoldState>();
     return Scaffold(
+      // key: _scaffoldKey,
       appBar: _buildAppBar,
       body: _buildBody,
       drawer: _buildDrawer,
@@ -30,12 +33,35 @@ class MyHome extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.pink,
         foregroundColor: Colors.yellowAccent,
-        child: Icon(Icons.add),
+        child: Icon(Icons.delete),
         onPressed: (){
-          print("Add");
+          SnackBar snackBar = SnackBar(
+            content: Text('Hello'),
+            duration: Duration(seconds: 3),
+            action: SnackBarAction(
+              label: "yes",
+              onPressed: (){
+                print("you clicked yes");
+              },
+            ),
+          );
+          ScaffoldMessenger.of(context).showSnackBar(snackBar);
         },
       ),
     );
+  }
+
+  _showSnackBar(String text ,{int second = 2}){
+    SnackBar snackBar = SnackBar(
+      content: Text(text),
+      duration: Duration(seconds: second),
+      action: SnackBarAction(
+        label: "yes",
+        onPressed: (){
+          print("you clicked yes");
+        },
+    );
+
   }
 
   get _buildBottomNav => BottomNavigationBar(
@@ -94,7 +120,9 @@ class MyHome extends StatelessWidget {
       actions: [
         IconButton(
           icon: Icon(Icons.settings),
-          onPressed: () {},
+          onPressed: () {
+            _showSnackBar("setting click ", second: 2);
+          },
         ),
       ],
     );
