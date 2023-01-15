@@ -37,9 +37,10 @@ class MyHome extends StatelessWidget {
         onPressed: (){
           SnackBar snackBar = SnackBar(
             content: Text('Hello'),
+            backgroundColor: Colors.deepOrange,
             duration: Duration(seconds: 3),
             action: SnackBarAction(
-              label: "yes",
+              label: "Undo",
               onPressed: (){
                 print("you clicked yes");
               },
@@ -60,8 +61,10 @@ class MyHome extends StatelessWidget {
         onPressed: (){
           print("you clicked yes");
         },
+      ),
     );
-
+    // ScaffoldMessenger.of(context).showSnackBar(snackBar);
+        // ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
 
   get _buildBottomNav => BottomNavigationBar(
@@ -85,10 +88,10 @@ class MyHome extends StatelessWidget {
         ],
       );
 
+  final logo =
+      "https://www.pngarts.com/files/3/Logo-PNG-Transparent-Image.png";
   // method private
   get _buildAppBar {
-    String logo =
-        "https://www.pngarts.com/files/3/Logo-PNG-Transparent-Image.png";
     return AppBar(
       backgroundColor: Colors.amber,
       title: Row(
@@ -128,13 +131,15 @@ class MyHome extends StatelessWidget {
     );
   }
 
-  get _buildBody {
-    return Container(
-      alignment: Alignment.center,
-      color: Colors.white,
-      child: Text('this is container'),
-    );
-  }
+  get _buildBody => Container(
+    alignment: Alignment.center,
+    child: Container(
+        width: 200,
+        height: 200,
+        child: Image.network(logo),
+    ),
+
+  );
 
   get _buildDrawer => Drawer();
 
