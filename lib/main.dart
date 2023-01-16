@@ -1,6 +1,11 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:fluttericon/fontelico_icons.dart';
+import 'package:fluttericon/linecons_icons.dart';
+import 'package:fluttericon/typicons_icons.dart';
+import 'package:fluttericon/font_awesome_icons.dart';
+import 'package:fluttericon/elusive_icons.dart';
 
 void main() => runApp(MyApp());
 
@@ -21,7 +26,6 @@ class MyHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     // final _scaffoldKey = new GlobalKey<ScaffoldState>();
     return Scaffold(
       // key: _scaffoldKey,
@@ -34,14 +38,14 @@ class MyHome extends StatelessWidget {
         backgroundColor: Colors.pink,
         foregroundColor: Colors.yellowAccent,
         child: Icon(Icons.delete),
-        onPressed: (){
+        onPressed: () {
           SnackBar snackBar = SnackBar(
             content: Text('Hello'),
             backgroundColor: Colors.deepOrange,
             duration: Duration(seconds: 3),
             action: SnackBarAction(
               label: "Undo",
-              onPressed: (){
+              onPressed: () {
                 print("you clicked yes");
               },
             ),
@@ -52,44 +56,38 @@ class MyHome extends StatelessWidget {
     );
   }
 
-  _showSnackBar(String text ,{int second = 2}){
+  _showSnackBar(String text, {int second = 2}) {
     SnackBar snackBar = SnackBar(
       content: Text(text),
       duration: Duration(seconds: second),
       action: SnackBarAction(
         label: "yes",
-        onPressed: (){
+        onPressed: () {
           print("you clicked yes");
         },
       ),
     );
     // ScaffoldMessenger.of(context).showSnackBar(snackBar);
-        // ScaffoldMessenger.of(context).showSnackBar(snackBar);
+    // ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
 
   get _buildBottomNav => BottomNavigationBar(
-    currentIndex: 0,
-      onTap: (int index) {
-
-      },
-      backgroundColor: Colors.grey[200],
+        currentIndex: 0,
+        onTap: (int index) {},
+        backgroundColor: Colors.grey[200],
         selectedItemColor: Colors.pink,
         unselectedItemColor: Colors.deepPurple,
         items: [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
           BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: "Home"),
+              icon: Icon(Icons.play_circle_outline), label: "Play"),
           BottomNavigationBarItem(
-              icon: Icon(Icons.play_circle_outline),
-              label: "Play"),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.settings),
-              label: "Settings"),
+              icon: Icon(Icons.settings), label: "Settings"),
         ],
       );
 
-  final logo =
-      "https://www.pngarts.com/files/3/Logo-PNG-Transparent-Image.png";
+  final logo = "https://www.pngarts.com/files/3/Logo-PNG-Transparent-Image.png";
+
   // method private
   get _buildAppBar {
     return AppBar(
@@ -131,15 +129,51 @@ class MyHome extends StatelessWidget {
     );
   }
 
+  final _img = "https://www.thediaryofanomad.com/wp-content/w3-webp/uploads/2021/02/waterfall-quotes-waterfall-captions-10-1.jpgw3.webp";
   get _buildBody => Container(
-    alignment: Alignment.center,
-    child: Container(
-        width: 200,
-        height: 200,
-        child: Image.network(logo),
-    ),
+        alignment: Alignment.center,
+        color: Colors.blue,
+        // padding: EdgeInsets.only(left: 10, top: 30, right: 10, bottom: 30),
+        child: Container(
+          width: 200,
+          height: 200,
+          transform: Matrix4.rotationZ(0.2),
+          decoration: BoxDecoration(
+              color: Colors.pink,
+              // borderRadius: BorderRadius.circular(20),
 
-  );
+              borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(50),
+                  bottomRight: Radius.circular(50),
+              ),
+
+              // shape: BoxShape.circle,
+              gradient: LinearGradient(
+                begin:  Alignment.topLeft,
+                end: Alignment.bottomRight,
+                stops: [0.2, 0.8],
+                colors: [Colors.pink, Colors.deepPurple]),
+            image: DecorationImage(
+              fit: BoxFit.cover,
+              image: NetworkImage(_img),
+            ),
+            boxShadow: [
+              BoxShadow(color: Colors.white, offset: Offset(5,5), blurRadius: 1.2, spreadRadius: 5.0
+            )],
+          ),
+
+          // child: Text(
+          //   "The Fuck",
+          //   style: TextStyle(
+          //     fontSize: 60,
+          //     letterSpacing: 3,
+          //     color: Colors.white,
+          //     fontStyle: FontStyle.italic,
+          //     fontWeight: FontWeight.bold,
+          //   ),
+          // ),
+        ),
+      );
 
   get _buildDrawer => Drawer();
 
