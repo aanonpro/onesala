@@ -153,25 +153,25 @@ class MyHome extends StatelessWidget {
                 end: Alignment.bottomRight,
                 stops: [0.2, 0.8],
                 colors: [Colors.pink, Colors.deepPurple]),
-            image: DecorationImage(
-              fit: BoxFit.cover,
-              image: NetworkImage(_img),
-            ),
+            // image: DecorationImage(
+            //   fit: BoxFit.cover,
+            //   image: NetworkImage(_img),
+            // ),
             boxShadow: [
               BoxShadow(color: Colors.white, offset: Offset(5,5), blurRadius: 1.2, spreadRadius: 5.0
             )],
           ),
 
-          // child: Text(
-          //   "The Fuck",
-          //   style: TextStyle(
-          //     fontSize: 60,
-          //     letterSpacing: 3,
-          //     color: Colors.white,
-          //     fontStyle: FontStyle.italic,
-          //     fontWeight: FontWeight.bold,
-          //   ),
-          // ),
+          child: Text(
+            "The Fuck You",
+            style: TextStyle(
+              fontSize: 60,
+              letterSpacing: 3,
+              color: Colors.white,
+              fontStyle: FontStyle.italic,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
         ),
       );
 
