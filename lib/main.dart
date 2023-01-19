@@ -7,8 +7,10 @@ import 'package:fluttericon/typicons_icons.dart';
 import 'package:fluttericon/font_awesome_icons.dart';
 import 'package:fluttericon/elusive_icons.dart';
 import 'package:onesala_flutter/login_page.dart';
+import 'package:onesala_flutter/main_page.dart';
 
 import 'my_home.dart';
+import 'my_statefull_examplee.dart';
 
 void main() => runApp(MyApp());
 
@@ -19,7 +21,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: LoginPage(),
+      home: MainPage(),
     );
   }
 }
