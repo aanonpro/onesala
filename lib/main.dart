@@ -9,6 +9,7 @@ import 'package:fluttericon/elusive_icons.dart';
 import 'package:onesala_flutter/login_page.dart';
 import 'package:onesala_flutter/main_page.dart';
 
+import 'banner_page.dart';
 import 'my_home.dart';
 import 'my_statefull_examplee.dart';
 
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: MainPage(),
+      home: BannerPage(),
     );
   }
 }
